@@ -117,9 +117,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- ATDev Logo -->
-                <div class="atdev-logo">
+                <a href="#home" class="atdev-logo">
                     <span class="logo-square">AT</span><span class="logo-dev">Dev</span>
-                </div>
+                </a>
                 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
@@ -180,11 +180,6 @@
         <div id="vanta-net" class="absolute inset-0"></div>
         <div class="absolute inset-0 bg-gradient-to-br from-bright-blue/10 to-deep-blue/20"></div>
         
-        <!-- Floating Elements for Vantage IS -->
-        <div class="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full animate-float"></div>
-        <div class="absolute top-40 right-20 w-16 h-16 bg-white/10 rounded-full animate-float" style="animation-delay: -2s;"></div>
-        <div class="absolute bottom-40 left-20 w-12 h-12 bg-white/10 rounded-full animate-float" style="animation-delay: -4s;"></div>
-        <div class="absolute top-1/2 right-10 w-8 h-8 bg-light-blue-gray/20 rounded-full animate-float" style="animation-delay: -1s;"></div>
         
         <!-- Hero Content -->
         <div class="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
@@ -390,8 +385,10 @@
                 <div class="grid md:grid-cols-3 gap-8">
                     <!-- Todd Roberts - CEO -->
                     <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg card-hover overflow-hidden border border-gray-100 dark:border-gray-700">
-                        <div class="h-48 brand-gradient flex items-center justify-center">
-                            <div class="text-white text-6xl">👨‍💼</div>
+                        <div class="h-48 brand-gradient flex items-center justify-center bg-gradient-to-br from-bright-blue to-deep-blue">
+                            <div class="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center">
+                                <span class="text-white text-2xl font-bold">TR</span>
+                            </div>
                         </div>
                         <div class="p-6">
                             <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Todd Roberts</h4>
@@ -413,7 +410,9 @@
                     <!-- Owen Kent - CMO -->
                     <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg card-hover overflow-hidden border border-gray-100 dark:border-gray-700">
                         <div class="h-48 bg-gradient-to-br from-light-blue-gray to-deep-blue flex items-center justify-center">
-                            <div class="text-white text-6xl">👨‍💻</div>
+                            <div class="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center">
+                                <span class="text-white text-2xl font-bold">OK</span>
+                            </div>
                         </div>
                         <div class="p-6">
                             <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Owen Kent</h4>
@@ -435,7 +434,9 @@
                     <!-- Dave Wilkinson - CSO -->
                     <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg card-hover overflow-hidden border border-gray-100 dark:border-gray-700">
                         <div class="h-48 bg-gradient-to-br from-deep-blue to-bright-blue flex items-center justify-center">
-                            <div class="text-white text-6xl">👨‍🔬</div>
+                            <div class="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center">
+                                <span class="text-white text-2xl font-bold">DW</span>
+                            </div>
                         </div>
                         <div class="p-6">
                             <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Dave Wilkinson</h4>
@@ -510,43 +511,72 @@
     </section>
 
     <!-- Partners Section -->
-    <section class="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <section id="partners" class="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl text-near-black dark:text-white mb-4">Our Partners</h2>
                 <p class="font-raleway font-light text-xl text-dark-gray dark:text-gray-300 max-w-3xl mx-auto">
-                    Collaborating with leading organizations to advance assistive technology
+                    Trusted by leading healthcare organizations and investors
                 </p>
             </div>
             
-            <!-- Partner Logos Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-items-center opacity-70 hover:opacity-100 transition-opacity duration-300">
-                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 w-32 h-24 flex items-center justify-center shadow-sm border border-gray-100 dark:border-gray-700 card-hover">
-                    <img src="images/partners/1.png" alt="Partner 1" class="max-w-full max-h-full object-contain">
+            <!-- Partner Carousel -->
+            <div class="relative max-w-6xl mx-auto">
+                <!-- Carousel Container -->
+                <div class="overflow-hidden rounded-lg">
+                    <div id="partner-carousel" class="flex transition-transform duration-500 ease-in-out">
+                        <!-- Slide 1 -->
+                        <div class="flex-none w-full grid grid-cols-3 md:grid-cols-5 gap-6 items-center justify-items-center px-4">
+                            <div class="bg-white dark:bg-gray-800 rounded-lg p-4 w-32 h-24 flex items-center justify-center shadow-sm border border-gray-100 dark:border-gray-700">
+                                <img src="images/partners/1.png" alt="Partner 1" class="max-w-full max-h-full object-contain">
+                            </div>
+                            <div class="bg-white dark:bg-gray-800 rounded-lg p-4 w-32 h-24 flex items-center justify-center shadow-sm border border-gray-100 dark:border-gray-700">
+                                <img src="images/partners/2.png" alt="Partner 2" class="max-w-full max-h-full object-contain">
+                            </div>
+                            <div class="bg-white dark:bg-gray-800 rounded-lg p-4 w-32 h-24 flex items-center justify-center shadow-sm border border-gray-100 dark:border-gray-700">
+                                <img src="images/partners/3.png" alt="Partner 3" class="max-w-full max-h-full object-contain">
+                            </div>
+                            <div class="bg-white dark:bg-gray-800 rounded-lg p-4 w-32 h-24 flex items-center justify-center shadow-sm border border-gray-100 dark:border-gray-700">
+                                <img src="images/partners/4.png" alt="Partner 4" class="max-w-full max-h-full object-contain">
+                            </div>
+                            <div class="bg-white dark:bg-gray-800 rounded-lg p-4 w-32 h-24 flex items-center justify-center shadow-sm border border-gray-100 dark:border-gray-700">
+                                <img src="images/partners/5.png" alt="Partner 5" class="max-w-full max-h-full object-contain">
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="flex-none w-full grid grid-cols-3 md:grid-cols-4 gap-6 items-center justify-items-center px-4">
+                            <div class="bg-white dark:bg-gray-800 rounded-lg p-4 w-32 h-24 flex items-center justify-center shadow-sm border border-gray-100 dark:border-gray-700">
+                                <img src="images/partners/6.png" alt="Partner 6" class="max-w-full max-h-full object-contain">
+                            </div>
+                            <div class="bg-white dark:bg-gray-800 rounded-lg p-4 w-32 h-24 flex items-center justify-center shadow-sm border border-gray-100 dark:border-gray-700">
+                                <img src="images/partners/7.png" alt="Partner 7" class="max-w-full max-h-full object-contain">
+                            </div>
+                            <div class="bg-white dark:bg-gray-800 rounded-lg p-4 w-32 h-24 flex items-center justify-center shadow-sm border border-gray-100 dark:border-gray-700">
+                                <img src="images/partners/8.png" alt="Partner 8" class="max-w-full max-h-full object-contain">
+                            </div>
+                            <div class="bg-white dark:bg-gray-800 rounded-lg p-4 w-32 h-24 flex items-center justify-center shadow-sm border border-gray-100 dark:border-gray-700">
+                                <img src="images/partners/9.png" alt="Partner 9" class="max-w-full max-h-full object-contain">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 w-32 h-24 flex items-center justify-center shadow-sm border border-gray-100 dark:border-gray-700 card-hover">
-                    <img src="images/partners/2.png" alt="Partner 2" class="max-w-full max-h-full object-contain">
-                </div>
-                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 w-32 h-24 flex items-center justify-center shadow-sm border border-gray-100 dark:border-gray-700 card-hover">
-                    <img src="images/partners/3.png" alt="Partner 3" class="max-w-full max-h-full object-contain">
-                </div>
-                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 w-32 h-24 flex items-center justify-center shadow-sm border border-gray-100 dark:border-gray-700 card-hover">
-                    <img src="images/partners/4.png" alt="Partner 4" class="max-w-full max-h-full object-contain">
-                </div>
-                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 w-32 h-24 flex items-center justify-center shadow-sm border border-gray-100 dark:border-gray-700 card-hover">
-                    <img src="images/partners/5.png" alt="Partner 5" class="max-w-full max-h-full object-contain">
-                </div>
-                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 w-32 h-24 flex items-center justify-center shadow-sm border border-gray-100 dark:border-gray-700 card-hover">
-                    <img src="images/partners/6.png" alt="Partner 6" class="max-w-full max-h-full object-contain">
-                </div>
-                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 w-32 h-24 flex items-center justify-center shadow-sm border border-gray-100 dark:border-gray-700 card-hover">
-                    <img src="images/partners/7.png" alt="Partner 7" class="max-w-full max-h-full object-contain">
-                </div>
-                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 w-32 h-24 flex items-center justify-center shadow-sm border border-gray-100 dark:border-gray-700 card-hover">
-                    <img src="images/partners/8.png" alt="Partner 8" class="max-w-full max-h-full object-contain">
-                </div>
-                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 w-32 h-24 flex items-center justify-center shadow-sm border border-gray-100 dark:border-gray-700 card-hover">
-                    <img src="images/partners/9.png" alt="Partner 9" class="max-w-full max-h-full object-contain">
+                
+                <!-- Navigation Buttons -->
+                <button id="prev-btn" class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white dark:bg-gray-700 text-gray-800 dark:text-white p-3 rounded-full shadow-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors duration-300">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button id="next-btn" class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white dark:bg-gray-700 text-gray-800 dark:text-white p-3 rounded-full shadow-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors duration-300">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+                
+                <!-- Dots Indicator -->
+                <div class="flex justify-center mt-8 space-x-2">
+                    <button class="carousel-dot w-3 h-3 rounded-full bg-bright-blue" data-slide="0"></button>
+                    <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600" data-slide="1"></button>
                 </div>
             </div>
         </div>
@@ -780,6 +810,52 @@
         
         // Auto-update copyright year
         document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Partner Carousel functionality
+        let currentSlide = 0;
+        const totalSlides = 2;
+        const carousel = document.getElementById('partner-carousel');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.remove('bg-gray-300', 'dark:bg-gray-600');
+                    dot.classList.add('bg-bright-blue');
+                } else {
+                    dot.classList.remove('bg-bright-blue');
+                    dot.classList.add('bg-gray-300', 'dark:bg-gray-600');
+                }
+            });
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+        
+        // Auto-advance carousel every 4 seconds
+        setInterval(nextSlide, 4000);
+        
+        // Manual controls
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+        
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                updateCarousel();
+            });
+        });
         
         // Reinitialize Vanta on window resize for responsiveness
         window.addEventListener('resize', () => {
