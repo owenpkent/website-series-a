@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Raleway:wght@300;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -174,9 +176,9 @@
 
     <!-- Hero Section -->
     <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <!-- Parallax Background -->
-        <div class="absolute inset-0 brand-gradient opacity-95"></div>
-        <div class="absolute inset-0 bg-gradient-to-br from-bright-blue/20 to-deep-blue/40"></div>
+        <!-- Vanta.js NET Background -->
+        <div id="vanta-net" class="absolute inset-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-bright-blue/10 to-deep-blue/20"></div>
         
         <!-- Floating Elements for Vantage IS -->
         <div class="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full animate-float"></div>
@@ -613,6 +615,46 @@
         // Observe elements for animation
         document.querySelectorAll('.card-hover').forEach(card => {
             observer.observe(card);
+        });
+        
+        // Initialize Vanta.js NET effect
+        let vantaEffect = null;
+        
+        function initVanta() {
+            if (window.VANTA && window.THREE) {
+                vantaEffect = VANTA.NET({
+                    el: "#vanta-net",
+                    mouseControls: true,
+                    touchControls: true,
+                    gyroControls: false,
+                    minHeight: 200.00,
+                    minWidth: 200.00,
+                    scale: 1.00,
+                    scaleMobile: 1.00,
+                    color: 0x22a9fd,
+                    backgroundColor: 0x115c90,
+                    points: 10.00,
+                    maxDistance: 25.00,
+                    spacing: 15.00
+                });
+            }
+        }
+        
+        // Initialize Vanta when page loads
+        window.addEventListener('load', initVanta);
+        
+        // Reinitialize Vanta on window resize for responsiveness
+        window.addEventListener('resize', () => {
+            if (vantaEffect) {
+                vantaEffect.resize();
+            }
+        });
+        
+        // Clean up Vanta effect when navigating away
+        window.addEventListener('beforeunload', () => {
+            if (vantaEffect) {
+                vantaEffect.destroy();
+            }
         });
     </script>
 </body>
