@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advisors - ATDev</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Raleway:wght@300;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'bright-blue': '#22A9FD',
+                        'deep-blue': '#115C90',
+                        'light-blue-gray': '#93C0DB',
+                        'near-black': '#03090D',
+                        'dark-gray': '#606161',
+                        'off-white': '#F9FAFB'
+                    },
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                        'raleway': ['Raleway', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .brand-gradient {
+            background: linear-gradient(135deg, #22A9FD 0%, #115C90 100%);
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="font-montserrat bg-off-white dark:bg-near-black text-near-black dark:text-white transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 dark:bg-near-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- ATDev Logo -->
+                <a href="index.html" class="flex items-center">
+                    <img src="images/ATDevlogoSolid.png" alt="ATDev Logo" class="h-8 w-auto">
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Home</a>
+                    <a href="reflex.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Reflex</a>
+                    <a href="advisors.html" class="font-raleway font-medium text-bright-blue">Advisors</a>
+                    <a href="index.html#evidence" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Evidence</a>
+                    <a href="index.html#investors" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Investors</a>
+                    <a href="index.html#about" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">About</a>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300">
+                        <svg id="sun-icon" class="w-5 h-5 hidden dark:block text-bright-blue" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                        </svg>
+                        <svg id="moon-icon" class="w-5 h-5 block dark:hidden text-dark-gray" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                    </button>
+                    
+                    <a href="contact.html" class="font-montserrat font-semibold bg-bright-blue text-white px-6 py-2 rounded-lg hover:bg-deep-blue transition-colors duration-300 uppercase tracking-wide text-sm">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center space-x-2">
+                    <button id="mobile-theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800">
+                        <svg class="w-5 h-5 dark:hidden text-dark-gray" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 hidden dark:block text-bright-blue" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <button id="mobile-menu-button" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800">
+                        <svg class="w-6 h-6 text-dark-gray dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white/95 dark:bg-near-black/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Home</a>
+                <a href="reflex.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Reflex</a>
+                <a href="advisors.html" class="block px-3 py-2 font-raleway font-medium text-bright-blue">Advisors</a>
+                <a href="index.html#evidence" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Evidence</a>
+                <a href="index.html#investors" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Investors</a>
+                <a href="index.html#about" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">About</a>
+                <a href="contact.html" class="block px-3 py-2 bg-bright-blue text-white rounded-lg mx-3 text-center font-montserrat font-semibold uppercase tracking-wide text-sm">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Advisors Hero Section -->
+    <section class="pt-20 pb-12 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="font-montserrat font-bold text-4xl md:text-5xl lg:text-6xl text-near-black dark:text-white mb-6">Our Advisors</h1>
+            <p class="font-raleway font-light text-xl text-dark-gray dark:text-gray-300 max-w-3xl mx-auto">
+                World-class experts guiding ATDev's mission to transform assistive technology and healthcare innovation.
+            </p>
+        </div>
+    </section>
+
+    <!-- Advisors Grid Section -->
+    <section class="py-20 bg-off-white dark:bg-near-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Dr. Grace O'Connell -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg card-hover overflow-hidden border border-gray-100 dark:border-gray-700">
+                    <div class="h-64 bg-gradient-to-br from-bright-blue to-deep-blue flex items-center justify-center">
+                        <div class="text-white text-6xl">👩‍🔬</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Dr. Grace O'Connell, PhD</h4>
+                        <p class="font-raleway font-medium text-bright-blue mb-4">Associate Dean, College of Engineering</p>
+                        <p class="font-raleway text-sm text-dark-gray dark:text-gray-300 mb-4">UC Berkeley</p>
+                    </div>
+                </div>
+
+                <!-- Dr. Tina Duong -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg card-hover overflow-hidden border border-gray-100 dark:border-gray-700">
+                    <div class="h-64 bg-gradient-to-br from-bright-blue to-deep-blue flex items-center justify-center">
+                        <div class="text-white text-6xl">🧠</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Dr. Tina Duong, PhD</h4>
+                        <p class="font-raleway font-medium text-bright-blue mb-4">Clinical Researcher in Neurology</p>
+                        <p class="font-raleway text-sm text-dark-gray dark:text-gray-300 mb-4">Stanford University</p>
+                    </div>
+                </div>
+
+                <!-- KC McCreery -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg card-hover overflow-hidden border border-gray-100 dark:border-gray-700">
+                    <div class="h-64 bg-gradient-to-br from-bright-blue to-deep-blue flex items-center justify-center">
+                        <div class="text-white text-6xl">🏭</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">KC McCreery</h4>
+                        <p class="font-raleway font-medium text-bright-blue mb-4">Former Director of Manufacturing</p>
+                        <p class="font-raleway text-sm text-dark-gray dark:text-gray-300 mb-4">Tesla</p>
+                    </div>
+                </div>
+
+                <!-- William Dexter, MD -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg card-hover overflow-hidden border border-gray-100 dark:border-gray-700">
+                    <div class="h-64 bg-gradient-to-br from-bright-blue to-deep-blue flex items-center justify-center">
+                        <div class="text-white text-6xl">⚕️</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">William Dexter, MD</h4>
+                        <p class="font-raleway font-medium text-bright-blue mb-4">Director of Sports Medicine</p>
+                        <p class="font-raleway text-sm text-dark-gray dark:text-gray-300 mb-4">Maine Medical Center</p>
+                    </div>
+                </div>
+
+                <!-- Mark Klopp -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg card-hover overflow-hidden border border-gray-100 dark:border-gray-700">
+                    <div class="h-64 bg-gradient-to-br from-bright-blue to-deep-blue flex items-center justify-center">
+                        <div class="text-white text-6xl">💼</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Mark Klopp</h4>
+                        <p class="font-raleway font-medium text-bright-blue mb-4">Managing Director</p>
+                        <p class="font-raleway text-sm text-dark-gray dark:text-gray-300 mb-4">Coronis Medical Ventures</p>
+                    </div>
+                </div>
+
+                <!-- Geoffrey Roche -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg card-hover overflow-hidden border border-gray-100 dark:border-gray-700">
+                    <div class="h-64 bg-gradient-to-br from-bright-blue to-deep-blue flex items-center justify-center">
+                        <div class="text-white text-6xl">🏥</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Geoffrey Roche</h4>
+                        <p class="font-raleway font-medium text-bright-blue mb-4">Senior Vice President</p>
+                        <p class="font-raleway text-sm text-dark-gray dark:text-gray-300 mb-4">Dignity Health Global</p>
+                    </div>
+                </div>
+
+                <!-- Josh Caputo -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg card-hover overflow-hidden border border-gray-100 dark:border-gray-700">
+                    <div class="h-64 bg-gradient-to-br from-bright-blue to-deep-blue flex items-center justify-center">
+                        <div class="text-white text-6xl">🤖</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Josh Caputo</h4>
+                        <p class="font-raleway font-medium text-bright-blue mb-4">CEO</p>
+                        <p class="font-raleway text-sm text-dark-gray dark:text-gray-300 mb-4">Humotech</p>
+                    </div>
+                </div>
+
+                <!-- Dr. Alfred Kuo -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg card-hover overflow-hidden border border-gray-100 dark:border-gray-700">
+                    <div class="h-64 bg-gradient-to-br from-bright-blue to-deep-blue flex items-center justify-center">
+                        <div class="text-white text-6xl">🦴</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Dr. Alfred Kuo, MD, PhD</h4>
+                        <p class="font-raleway font-medium text-bright-blue mb-4">Chief of Orthopedics</p>
+                        <p class="font-raleway text-sm text-dark-gray dark:text-gray-300 mb-4">San Francisco VA</p>
+                    </div>
+                </div>
+
+                <!-- Ben Walker -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg card-hover overflow-hidden border border-gray-100 dark:border-gray-700">
+                    <div class="h-64 bg-gradient-to-br from-bright-blue to-deep-blue flex items-center justify-center">
+                        <div class="text-white text-6xl">🚀</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Ben Walker</h4>
+                        <p class="font-raleway font-medium text-bright-blue mb-4">Executive Director</p>
+                        <p class="font-raleway text-sm text-dark-gray dark:text-gray-300 mb-4">Innosphere Ventures</p>
+                    </div>
+                </div>
+
+                <!-- Nuzha Yakoob -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg card-hover overflow-hidden border border-gray-100 dark:border-gray-700">
+                    <div class="h-64 bg-gradient-to-br from-bright-blue to-deep-blue flex items-center justify-center">
+                        <div class="text-white text-6xl">⚙️</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-montserrat font-bold text-xl text-near-black dark:text-white mb-2">Nuzha Yakoob</h4>
+                        <p class="font-raleway font-medium text-bright-blue mb-4">Technology & Innovation Management</p>
+                        <p class="font-raleway text-sm text-dark-gray dark:text-gray-300 mb-4">Festo Corporation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-near-black dark:bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="mb-4">
+                        <img src="images/ATDevlogoSolid.png" alt="ATDev Logo" class="h-8 w-auto">
+                    </div>
+                    <p class="font-raleway font-light text-gray-300 max-w-md">
+                        Creating innovative, assistive technology that empowers people to live independently, confidently, and without barriers.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-montserrat font-semibold text-lg mb-4">Company</h3>
+                    <ul class="space-y-2 font-raleway">
+                        <li><a href="index.html#about" class="text-gray-300 hover:text-bright-blue transition-colors">About</a></li>
+                        <li><a href="index.html#products" class="text-gray-300 hover:text-bright-blue transition-colors">Products</a></li>
+                        <li><a href="index.html#evidence" class="text-gray-300 hover:text-bright-blue transition-colors">Evidence</a></li>
+                        <li><a href="index.html#investors" class="text-gray-300 hover:text-bright-blue transition-colors">Investors</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-montserrat font-semibold text-lg mb-4">Connect</h3>
+                    <ul class="space-y-2 font-raleway">
+                        <li><a href="contact.html" class="text-gray-300 hover:text-bright-blue transition-colors">Contact</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-bright-blue transition-colors">Support</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-bright-blue transition-colors">Privacy</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-bright-blue transition-colors">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="font-raleway text-gray-400">© <span id="current-year">2024</span> ATDev. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Dark mode toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+        const html = document.documentElement;
+        
+        function toggleTheme() {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        }
+        
+        // Initialize theme from localStorage
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        }
+        
+        themeToggle?.addEventListener('click', toggleTheme);
+        mobileThemeToggle?.addEventListener('click', toggleTheme);
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton?.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Auto-update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
