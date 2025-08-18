@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Raleway:wght@300;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
     <style>
         .glass-card {
             background: rgba(255, 255, 255, 0.1);
@@ -47,7 +49,7 @@
                     <a href="index.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Home</a>
                     <a href="reflex.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Reflex</a>
                     <a href="advisors.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Advisors</a>
-                    <a href="index.html#about" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">About</a>
+                    <a href="about.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">About</a>
                     
                     <!-- Dark Mode Toggle -->
                     <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300" aria-label="Toggle dark mode">
@@ -85,7 +87,7 @@
                 <a href="index.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Home</a>
                 <a href="reflex.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Reflex</a>
                 <a href="advisors.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Advisors</a>
-                <a href="index.html#about" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">About</a>
+                <a href="about.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">About</a>
             </div>
         </div>
     </nav>
@@ -102,11 +104,11 @@
     </section>
 
     <!-- Contact Form Section -->
-    <section class="py-20 brand-gradient">
+    <section id="vanta-bg" class="py-20 brand-gradient">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-start">
                 <!-- Contact Form -->
-                <div class="glass-card rounded-xl p-8">
+                <div class="glass-card rounded-xl p-8 bg-white/20 backdrop-blur-lg">
                     <form class="space-y-6" netlify name="contact" method="POST">
                         <div>
                             <label for="contact-name" class="block font-raleway font-semibold text-white mb-2">Name</label>
@@ -128,10 +130,10 @@
                 
                 <!-- Contact Information -->
                 <div class="space-y-8">
-                    <div class="glass-card rounded-xl p-6 mb-8">
+                    <div class="glass-card rounded-xl p-6 mb-8 bg-white/20 backdrop-blur-lg">
                         <img src="images/aboutUs.jpg" alt="ATDev team and product development" class="w-full h-64 object-cover rounded-lg mb-6">
                     </div>
-                    <div class="glass-card rounded-xl p-6">
+                    <div class="glass-card rounded-xl p-6 bg-white/20 backdrop-blur-lg">
                         <h3 class="font-montserrat font-bold text-xl text-white mb-4">Contact Information</h3>
                         <div class="space-y-4">
                             <div class="flex items-center">
@@ -193,7 +195,7 @@
                 <div>
                     <h3 class="font-montserrat font-semibold text-lg mb-4">Company</h3>
                     <ul class="space-y-2 font-raleway">
-                        <li><a href="index.html#about" class="text-gray-300 hover:text-bright-blue transition-colors">About</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-bright-blue transition-colors">About</a></li>
                         <li><a href="reflex.html" class="text-gray-300 hover:text-bright-blue transition-colors">Reflex</a></li>
                     </ul>
                 </div>
@@ -243,6 +245,23 @@
         
         // Auto-update copyright year
         document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Initialize Vanta.js waves background
+        VANTA.WAVES({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x22a9fd,
+            shininess: 30.00,
+            waveHeight: 15.00,
+            waveSpeed: 1.00,
+            zoom: 0.75
+        });
     </script>
 </body>
 </html>
