@@ -1,0 +1,27 @@
+{
+  "name": "website-series-a",
+  "version": "1.0.0",
+  "description": "ATDev's official website showcasing our telehealth-enabled mobility devices and assistive technology solutions.",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owenpkent/website-series-a.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/owenpkent/website-series-a/issues"
+  },
+  "homepage": "https://github.com/owenpkent/website-series-a#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17"
+  }
+}
