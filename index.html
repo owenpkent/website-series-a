@@ -68,6 +68,40 @@
         .dark .logo-dev {
             color: #22A9FD;
         }
+        
+        /* Mobile video optimizations */
+        @media (max-width: 768px) {
+            video {
+                object-fit: cover !important;
+                width: 100% !important;
+                height: 100% !important;
+            }
+            
+            /* Prevent video controls from showing on mobile */
+            video::-webkit-media-controls {
+                display: none !important;
+            }
+            
+            video::-webkit-media-controls-panel {
+                display: none !important;
+            }
+            
+            video::-webkit-media-controls-play-button {
+                display: none !important;
+            }
+            
+            video::-webkit-media-controls-start-playback-button {
+                display: none !important;
+            }
+        }
+        
+        /* Ensure videos don't break layout on load failure */
+        video {
+            background-color: transparent;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
     </style>
 </head>
 <body class="font-montserrat bg-off-white dark:bg-near-black text-near-black dark:text-white transition-colors duration-300">
@@ -139,7 +173,7 @@
     <section id="home" class="relative min-h-screen overflow-hidden">
         <!-- Video Background -->
         <div class="absolute inset-0">
-            <video autoplay muted loop class="w-full h-full object-cover md:object-cover object-center">
+            <video autoplay muted loop playsinline webkit-playsinline preload="metadata" class="w-full h-full object-cover md:object-cover object-center" poster="images/hero-poster.jpg">
                 <source src="images/Homepage Hero optimized .mp4" type="video/mp4">
                 <!-- Fallback gradient background if video fails to load -->
                 <div class="absolute inset-0 bg-gradient-to-br from-bright-blue to-deep-blue"></div>
@@ -184,7 +218,7 @@
                 <!-- Reflex Robotic Rehabilitation Device - Flagship Product -->
                 <div class="max-w-4xl bg-white dark:bg-gray-800 rounded-xl shadow-lg card-hover overflow-hidden border border-gray-100 dark:border-gray-700">
                     <div class="h-96 bg-gray-50 dark:bg-gray-700 flex items-center justify-center p-4">
-                        <video autoplay muted loop class="max-w-full max-h-full object-contain rounded-lg" aria-label="Reflex Robotic Rehabilitation Device product demonstration">
+                        <video autoplay muted loop playsinline webkit-playsinline preload="metadata" class="max-w-full max-h-full object-contain rounded-lg" aria-label="Reflex Robotic Rehabilitation Device product demonstration" poster="images/Reflex - 1 (4).jpeg">
                             <source src="images/Couch-Vid1.mp4" type="video/mp4">
                             <img src="images/Reflex - 1 (4).jpeg" alt="Woman using Reflex Robotic Rehabilitation Device for rehabilitation" class="max-w-full max-h-full object-contain">
                         </video>
@@ -523,7 +557,83 @@
             observer.observe(card);
         });
         
-        // Video background is now handled by HTML video element
+        // Enhanced video handling for mobile compatibility
+        function initializeVideos() {
+            const videos = document.querySelectorAll('video');
+            
+            videos.forEach(video => {
+                // Handle video loading errors
+                video.addEventListener('error', function() {
+                    console.log('Video failed to load, showing poster image');
+                    this.style.display = 'none';
+                    
+                    // Show fallback image if video fails
+                    const fallbackImg = this.querySelector('img');
+                    if (fallbackImg) {
+                        fallbackImg.style.display = 'block';
+                    }
+                });
+                
+                // Handle autoplay restrictions on mobile
+                video.addEventListener('loadedmetadata', function() {
+                    const playPromise = this.play();
+                    
+                    if (playPromise !== undefined) {
+                        playPromise.catch(error => {
+                            console.log('Autoplay prevented, video will show poster');
+                            // Autoplay was prevented, poster will be shown
+                        });
+                    }
+                });
+                
+                // Ensure videos don't force fullscreen on scroll
+                video.addEventListener('webkitbeginfullscreen', function(e) {
+                    e.preventDefault();
+                });
+                
+                video.addEventListener('webkitendfullscreen', function(e) {
+                    e.preventDefault();
+                });
+                
+                // Handle iOS specific fullscreen issues
+                if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+                    video.setAttribute('playsinline', '');
+                    video.setAttribute('webkit-playsinline', '');
+                    
+                    // Prevent fullscreen on touch and scroll
+                    video.addEventListener('touchstart', function(e) {
+                        e.stopPropagation();
+                    });
+                    
+                    video.addEventListener('touchend', function(e) {
+                        e.stopPropagation();
+                    });
+                    
+                    video.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    });
+                }
+                
+                // Intersection Observer to pause/play videos based on visibility
+                const videoObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.play().catch(() => {
+                                console.log('Video autoplay failed for:', entry.target.src);
+                            });
+                        } else {
+                            entry.target.pause();
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                videoObserver.observe(video);
+            });
+        }
+        
+        // Initialize videos when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializeVideos);
         
         // Auto-update copyright year
         document.getElementById('current-year').textContent = new Date().getFullYear();
