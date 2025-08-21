@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - ATDev</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link href="./dist/output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Raleway:wght@300;500;600&display=swap" rel="stylesheet">
+    <style>
+        .brand-gradient {
+            background: linear-gradient(135deg, #22A9FD 0%, #115C90 100%);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark .glass-card {
+            background: rgba(3, 9, 13, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .floating-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="font-montserrat bg-off-white dark:bg-near-black text-near-black dark:text-white transition-colors duration-300 min-h-screen flex flex-col">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 dark:bg-near-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- ATDev Logo -->
+                <a href="/" class="flex items-center">
+                    <img src="images/ATDevlogoSolid.png" alt="ATDev Logo" class="h-8 w-auto">
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Home</a>
+                    <a href="/reflex.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Reflex</a>
+                    <a href="/advisors.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">Advisors</a>
+                    <a href="/about.html" class="font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue transition-colors duration-300">About</a>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300" aria-label="Toggle dark mode">
+                        <svg id="sun-icon" class="w-5 h-5 hidden dark:block text-bright-blue" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                        </svg>
+                        <svg id="moon-icon" class="w-5 h-5 block dark:hidden text-dark-gray" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                    </button>
+                    
+                    <a href="/contact.html" class="font-montserrat font-semibold bg-bright-blue text-white px-6 py-2 rounded-lg hover:bg-deep-blue transition-colors duration-300 uppercase tracking-wide text-sm">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center space-x-2">
+                    <button id="mobile-theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800" aria-label="Toggle dark mode">
+                        <svg class="w-5 h-5 dark:hidden text-dark-gray" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 hidden dark:block text-bright-blue" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <button id="mobile-menu-button" class="text-dark-gray dark:text-gray-300 hover:text-bright-blue" aria-label="Open mobile menu" aria-expanded="false">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white/95 dark:bg-near-black/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="/" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Home</a>
+                <a href="/reflex.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Reflex</a>
+                <a href="/advisors.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">Advisors</a>
+                <a href="/about.html" class="block px-3 py-2 font-raleway font-medium text-dark-gray dark:text-gray-300 hover:text-bright-blue">About</a>
+                <a href="/contact.html" class="block px-3 py-2 bg-bright-blue text-white rounded-lg mx-3 text-center font-montserrat font-semibold uppercase tracking-wide text-sm">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main 404 Content -->
+    <main class="flex-grow flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 pb-32">
+        <div class="max-w-4xl mx-auto text-center fade-in">
+            <!-- 404 Hero Section -->
+            <div class="mb-12">
+                <!-- Large 404 Number -->
+                <div class="mb-8">
+                    <h1 class="font-montserrat font-bold text-8xl md:text-9xl lg:text-[12rem] text-bright-blue opacity-20 leading-none select-none">
+                        404
+                    </h1>
+                </div>
+                
+                <!-- Error Message -->
+                <div class="glass-card rounded-2xl p-8 md:p-12 mb-8">
+                    
+                    <h2 class="font-montserrat font-bold text-3xl md:text-4xl text-near-black dark:text-white mb-4">
+                        Page Not Found
+                    </h2>
+                    
+                    <p class="font-raleway font-light text-lg md:text-xl text-dark-gray dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+                        We're sorry, but the page you're looking for seems to have wandered off. 
+                        Don't worry - even our assistive technology can't find everything!
+                    </p>
+                    
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <a href="/" class="font-montserrat font-semibold bg-bright-blue text-white px-8 py-3 rounded-lg hover:bg-deep-blue transition-colors duration-300 uppercase tracking-wide">
+                            Go Home
+                        </a>
+                        <button onclick="history.back()" class="font-montserrat font-semibold bg-transparent border-2 border-bright-blue text-bright-blue px-8 py-3 rounded-lg hover:bg-bright-blue hover:text-white transition-colors duration-300 uppercase tracking-wide">
+                            Go Back
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Helpful Links -->
+                <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-16 mb-32">
+                    <a href="/reflex.html" class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 group">
+                        <div class="text-bright-blue mb-3 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-montserrat font-semibold text-lg text-near-black dark:text-white mb-2">Reflex Device</h3>
+                        <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Learn about our flagship rehabilitation device</p>
+                    </a>
+                    
+                    <a href="/about.html" class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 group">
+                        <div class="text-bright-blue mb-3 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-montserrat font-semibold text-lg text-near-black dark:text-white mb-2">About ATDev</h3>
+                        <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Meet our team and learn our mission</p>
+                    </a>
+                    
+                    <a href="/contact.html" class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 group">
+                        <div class="text-bright-blue mb-3 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-montserrat font-semibold text-lg text-near-black dark:text-white mb-2">Get in Touch</h3>
+                        <p class="font-raleway text-sm text-dark-gray dark:text-gray-300">Contact us for support or inquiries</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Spacer -->
+    <div class="h-32"></div>
+
+    <!-- Footer -->
+    <footer class="bg-near-black dark:bg-gray-900 text-white py-8 mt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <img src="images/ATDevlogoSolid.png" alt="ATDev Logo" class="h-6 w-auto">
+                </div>
+                <p class="font-raleway text-gray-400 text-sm">
+                    © <span id="current-year">2024</span> Assistive Technology Development, Inc. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Dark mode toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+        const html = document.documentElement;
+        
+        function toggleTheme() {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        }
+        
+        // Initialize theme from localStorage
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        }
+        
+        if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+        if (mobileThemeToggle) mobileThemeToggle.addEventListener('click', toggleTheme);
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+        
+        // Update current year
+        const currentYear = new Date().getFullYear();
+        const yearElement = document.getElementById('current-year');
+        if (yearElement) {
+            yearElement.textContent = currentYear;
+        }
+        
+        // Add some interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add subtle parallax effect to the 404 number
+            const hero404 = document.querySelector('h1');
+            if (hero404) {
+                window.addEventListener('mousemove', (e) => {
+                    const x = (e.clientX / window.innerWidth) * 10;
+                    const y = (e.clientY / window.innerHeight) * 10;
+                    hero404.style.transform = `translate(${x}px, ${y}px)`;
+                });
+            }
+        });
+    </script>
+</body>
+</html>
