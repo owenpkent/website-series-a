@@ -107,20 +107,15 @@
     </nav>
 
     <!-- Main 404 Content -->
-    <main class="flex-grow flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 pb-32">
+    <main class="flex-grow px-4 sm:px-6 lg:px-8 pt-32 pb-32">
         <div class="max-w-4xl mx-auto text-center fade-in">
             <!-- 404 Hero Section -->
             <div class="mb-12">
-                <!-- Large 404 Number -->
-                <div class="mb-8">
-                    <h1 class="font-montserrat font-bold text-8xl md:text-9xl lg:text-[12rem] text-bright-blue opacity-20 leading-none select-none">
-                        404
-                    </h1>
-                </div>
-                
                 <!-- Error Message -->
                 <div class="glass-card rounded-2xl p-8 md:p-12 mb-8">
-                    
+                    <h1 style="font-size: 2rem; color: #22A9FD; font-weight: bold; margin-bottom: 1rem; line-height: 1;">
+                        404
+                    </h1>
                     <h2 class="font-montserrat font-bold text-3xl md:text-4xl text-near-black dark:text-white mb-4">
                         Page Not Found
                     </h2>
@@ -178,7 +173,7 @@
     </main>
 
     <!-- Spacer -->
-    <div class="h-32"></div>
+    <div class="h-16"></div>
 
     <!-- Footer -->
     <footer class="bg-near-black dark:bg-gray-900 text-white py-8 mt-24">
@@ -233,7 +228,13 @@
         
         // Add some interactive elements
         document.addEventListener('DOMContentLoaded', function() {
-            // Removed parallax effect - 404 number is now fixed
+            // Dynamically adjust main content padding based on header height
+            const header = document.querySelector('nav');
+            const main = document.querySelector('main');
+            if (header && main) {
+                const headerHeight = header.offsetHeight;
+                main.style.paddingTop = (headerHeight + 32) + 'px'; // header height + 32px extra
+            }
         });
     </script>
 </body>
