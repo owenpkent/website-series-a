@@ -233,15 +233,7 @@
         
         // Add some interactive elements
         document.addEventListener('DOMContentLoaded', function() {
-            // Add subtle parallax effect to the 404 number
-            const hero404 = document.querySelector('h1');
-            if (hero404) {
-                window.addEventListener('mousemove', (e) => {
-                    const x = (e.clientX / window.innerWidth) * 10;
-                    const y = (e.clientY / window.innerHeight) * 10;
-                    hero404.style.transform = `translate(${x}px, ${y}px)`;
-                });
-            }
+            // Removed parallax effect - 404 number is now fixed
         });
     </script>
 </body>
